@@ -1,9 +1,21 @@
 
-# BussTicketBD
+# BussTicketBD - Intelligent Conversational Bus Booking Platform
 
-A minimal chat-driven bus ticket assistant for Bangladesh.
-It uses **FastAPI** for the backend, **Streamlit** for a lightweight frontend demo, **MongoDB** for operational data storage, **Pinecone** for **vector search** and **retrieval-augmented** responses, and **OpenAI** for intent extraction and conversational generation.
-The project also uses LangGraph to model multi-step conversation flows and manage state.
+**An AI-powered bus ticket management system for Bangladesh that revolutionizes travel booking through natural language conversations, featuring advanced intent recognition, multi-step workflow orchestration, and comprehensive ticket lifecycle management.**
+
+
+### 🛠 **Technology Stack**
+- **AI/ML:** OpenAI GPT-4 + LangGraph (conversation orchestration) + Pinecone (vector embeddings)
+- **Backend:** FastAPI (async REST API) + MongoDB (operational data) + Motor (async driver)
+- **Frontend:** Streamlit (interactive chat interface)
+- **Infrastructure:** Docker Compose (containerized deployment)
+
+### 🚀 **Core Capabilities**
+- **Smart Route Discovery** - AI-driven route search across 10 major districts with real-time availability
+- **Conversational Booking** - Natural language ticket booking with context-aware dialog management  
+- **Ticket Management** - Complete booking lifecycle: view, modify, and cancel reservations
+- **Provider Intelligence** - Comprehensive coverage of 6 major bus operators with route optimization
+- **Memory-Persistent Chat** - Contextual conversations with intelligent state management
 
 ## Features
 - LLM-driven intent detection and dialog nodes.
@@ -17,7 +29,7 @@ The project also uses LangGraph to model multi-step conversation flows and manag
 - Docker Compose for easy local development with MongoDB.
 
 ## Prerequisites
-- Python 3.11+
+- Python 3.11
 - Docker & Docker Compose (optional, recommended for easy setup)
 - An OpenAI-compatible API key set in .env as OPENAI_API_KEY
 - Pinecone key for using embedding features
@@ -25,31 +37,28 @@ The project also uses LangGraph to model multi-step conversation flows and manag
 ## Quick setup (local)
 1. Create and activate a virtual environment:
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+python -m venv venv
+venv/Scripts/activate
 ```
 2. Install dependencies:
 ```bash
-pip install --upgrade pip
 pip install -r requirements.txt
 ```
-3. Copy the example environment file and set secrets:
+3. You have to provide all the secrets on .env file:
 ```bash
-OPENAI_API_KEY=<your openai api key>
-PINECONE_API_KEY=<your pinecone api key>
-PINECONE_INDEX=<pinecone index>
-MONGO_URI=<mongodb://mongo:27017>
+OPENAI_API_KEY="your openai api key"
+PINECONE_API_KEY="your pinecone api key"
+PINECONE_INDEX="pinecone index"
+MONGO_STRING_URI="mongodb://mongo:27017"
 ```
 
 ## Run locally (without Docker)
-1. Start MongoDB (if you don't use docker).
-2. Start the app (FastAPI + Streamlit demo):
+1. Start the app (FastAPI + Streamlit demo):
 ```bash
 uvicorn app.main:app --reload
 streamlit run frontend.py
 ```
 API: FastAPI runs on http://localhost:8000 
-
 Frontend: Streamlit chat runs on http://localhost:8501
 
 ## Run with Docker Compose (recommended)
@@ -95,19 +104,15 @@ docker compose up --build
 ```
 ## Langgraph
 
-![Langgraph](https://github.com/airakibul/BussTicketBD/blob/main/images/langgraph.png)
+![Langgraph](https://github.com/soudeep-cse/BusTicketBookingSystem_with_AI/blob/main/images/langgraph.png)
 
 ## Notes
 - The project expects a single aggregated document in the `busses` collection and `buss provider information` in the vector database. (created by the startup loader).
 - For production deployment, secure secrets and consider using a managed DB and API gateway.
-
-## Troubleshooting
-- If the frontend can't reach the backend, ensure FastAPI is running and the API_URL in frontend.py points to the correct host/port.
-- Check logs for the `app` container or run uvicorn in the terminal to see startup errors.
 
 ## License
 This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
 
 ## Screenshot
 
-![Screenshot](https://github.com/airakibul/BussTicketBD/blob/main/images/screenshot.png)
+![Output](https://github.com/soudeep-cse/BusTicketBookingSystem_with_AI/blob/main/images/Output.png)
