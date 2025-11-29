@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+motor
+passlib
+bcrypt
+python-jose[cryptography]
+pydantic
+email-validator
+pinecone
+openai 
+python-dotenv
+langgraph
+langchain-openai
+langchain
+streamlit
