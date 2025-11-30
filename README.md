@@ -58,7 +58,7 @@ MONGO_STRING_URI="mongodb://mongo:27017"
 uvicorn app.main:app --reload
 streamlit run frontend.py
 ```
-API: FastAPI runs on http://localhost:8000 
+API: FastAPI runs on http://localhost:8000 ;
 Frontend: Streamlit chat runs on http://localhost:8501
 
 ## Run with Docker Compose (recommended)
